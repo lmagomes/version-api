@@ -5,4 +5,5 @@ COPY ./requirements.txt /code/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY ./app/version-api.py /code/version-api.py
 
-CMD ["fastapi", "run", "version-api.py", "--port", "8080"]
+ENV PORT=8081
+CMD fastapi run version-api.py --port $PORT
